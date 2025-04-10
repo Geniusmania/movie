@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -103,7 +102,7 @@ class DeviceUtility {
     });
   }
 
-  static Future<void> setPreferedOrientation(
+  static Future<void> setPreferredOrientation(
       List<DeviceOrientation> orientations) async {
     await SystemChrome.setPreferredOrientations(orientations);
   }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ui/utils/constants/colors.dart';
-import 'package:ui/utils/helpers/helper_functions.dart';
+import 'package:movie/utils/constants/colors.dart';
+import 'package:movie/utils/helpers/helper_functions.dart';
+
 
 import '../constants/sizes.dart';
 

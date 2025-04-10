@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ui/utils/theme/custom_themes/appbar_theme.dart';
-import 'package:ui/utils/theme/custom_themes/bottom_sheet.dart';
-import 'package:ui/utils/theme/custom_themes/chackbox_theme.dart';
-import 'package:ui/utils/theme/custom_themes/chip_theme.dart';
-import 'package:ui/utils/theme/custom_themes/elevatedbotton_theme.dart';
-import 'package:ui/utils/theme/custom_themes/outlined_botton.dart';
-import 'package:ui/utils/theme/custom_themes/textFormFiled_theme.dart';
-import 'package:ui/utils/theme/custom_themes/text_theme.dart';
+import 'package:movie/utils/theme/custom_themes/appbar_theme.dart';
+import 'package:movie/utils/theme/custom_themes/bottom_sheet.dart';
+import 'package:movie/utils/theme/custom_themes/chackbox_theme.dart' show GCheckBox;
+import 'package:movie/utils/theme/custom_themes/chip_theme.dart';
+import 'package:movie/utils/theme/custom_themes/elevatedbotton_theme.dart';
+import 'package:movie/utils/theme/custom_themes/outlined_botton.dart';
+import 'package:movie/utils/theme/custom_themes/textFormFiled_theme.dart';
+import 'package:movie/utils/theme/custom_themes/text_theme.dart';
 
 
 class GAppTheme {

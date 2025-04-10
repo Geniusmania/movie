@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui/utils/constants/colors.dart';
+import 'package:movie/utils/constants/colors.dart';
+
 
 class GChipTheme{
 GChipTheme._();

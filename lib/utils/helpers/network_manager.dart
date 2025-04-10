@@ -2,7 +2,8 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart'; // Needed for PlatformException
 import 'package:get/get.dart';
-import 'package:ui/utils/popups/loaders.dart';
+import 'package:movie/utils/popups/loaders.dart';
+
 
 class NetworkManager extends GetxController {
   static NetworkManager get instance => Get.find();
