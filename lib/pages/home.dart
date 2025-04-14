@@ -3,7 +3,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:movie/pages/Discover/discover_screen.dart';
 import 'package:movie/pages/Favourite/favourite_screen.dart';
 import 'package:movie/pages/HomeScreen/home_screen.dart';
-
 import '../utils/constants/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,11 +13,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   int currentIndex = 0;
 
-
-  void onItemTapped (int index){
+  void onItemTapped(int index) {
     setState(() {
       currentIndex = index;
     });
@@ -39,12 +36,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: AppColors.dark,
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.black,
-currentIndex: currentIndex,
+        currentIndex: currentIndex,
         onTap: onItemTapped,
         selectedItemColor: AppColors.primary,
         items: [
@@ -64,8 +60,6 @@ currentIndex: currentIndex,
             backgroundColor: AppColors.primary,
           ),
         ],
-
-
       ),
 
       body: _buildBody(),

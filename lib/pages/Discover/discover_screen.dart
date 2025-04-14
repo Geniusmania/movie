@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie/utils/constants/colors.dart';
 
 class DiscoverScreen extends StatelessWidget {
   const DiscoverScreen({super.key});
@@ -6,7 +7,8 @@ class DiscoverScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('Discover Screen'),),
+      backgroundColor: AppColors.dark,
+      body: Center(child: Text('Discover Screen')),
     );
   }
 }
