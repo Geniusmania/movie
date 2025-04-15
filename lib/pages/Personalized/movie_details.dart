@@ -2,23 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:movie/pages/HomeScreen/widgets/main_banner.dart';
 import 'package:movie/reusables/slider_container.dart';
+import 'package:movie/store/api_controllers/movie_controller.dart';
 import 'package:movie/utils/constants/colors.dart';
 import 'package:readmore/readmore.dart';
 
+import '../../models/movies_model.dart';
 import '../../utils/constants/sizes.dart';
 
 class MovieDetail extends StatelessWidget {
-  const MovieDetail({super.key});
-
+  const MovieDetail({super.key, });
+//final  Movies movies;
   @override
   Widget build(BuildContext context) {
+    final productDetailController = MovieController.instance;
     return Scaffold(
       backgroundColor: AppColors.dark,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MainBanner(image: 'assets/img.png', showStack: false),
+            MainBanner(showStack: false, image: '', duration: '', year: '',),
             const SizedBox(height: AppSize.spaceBtwTtems),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),

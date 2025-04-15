@@ -64,31 +64,34 @@ class Movies {
     });
 
     factory Movies.fromJson(Map<String, dynamic> json) => Movies(
-        id: json["id"],
-        url: json["url"],
-        imdbCode: json["imdb_code"],
-        title: json["title"],
-        titleEnglish: json["title_english"],
-        titleLong: json["title_long"],
-        slug: json["slug"],
-        year: json["year"],
-        rating: json["rating"],
-        runtime: json["runtime"],
-        genres: List<String>.from(json["genres"].map((x) => x)),
-        summary: json["summary"],
-        descriptionFull: json["description_full"],
-        synopsis: json["synopsis"],
-        ytTrailerCode: json["yt_trailer_code"],
-        language: json["language"],
-        mpaRating: json["mpa_rating"],
-        backgroundImage: json["background_image"],
-        backgroundImageOriginal: json["background_image_original"],
-        smallCoverImage: json["small_cover_image"],
-        mediumCoverImage: json["medium_cover_image"],
-        largeCoverImage: json["large_cover_image"],
-        state: json["state"],
-        torrents: List<Torrent>.from(json["torrents"].map((x) => Torrent.fromJson(x))),
+        id: json["id"] ?? 0,
+        url: json["url"] ?? '',
+        imdbCode: json["imdb_code"] ?? '',
+        title: json["title"] ?? '',
+        titleEnglish: json["title_english"] ?? '',
+        titleLong: json["title_long"] ?? '',
+        slug: json["slug"] ?? '',
+        year: _parseInt(json["year"]),
+        rating: _parseInt(json["rating"]),
+        runtime: _parseInt(json["runtime"]),
+        genres: List<String>.from(json["genres"] ?? []),
+        summary: json["summary"] ?? '',
+        descriptionFull: json["description_full"] ?? '',
+        synopsis: json["synopsis"] ?? '',
+        ytTrailerCode: json["yt_trailer_code"] ?? '',
+        language: json["language"] ?? '',
+        mpaRating: json["mpa_rating"] ?? '',
+        backgroundImage: json["background_image"] ?? '',
+        backgroundImageOriginal: json["background_image_original"] ?? '',
+        smallCoverImage: json["small_cover_image"] ?? '',
+        mediumCoverImage: json["medium_cover_image"] ?? '',
+        largeCoverImage: json["large_cover_image"] ?? '',
+        state: json["state"] ?? '',
+        torrents: json["torrents"] == null
+            ? []
+            : List<Torrent>.from(json["torrents"].map((x) => Torrent.fromJson(x))),
     );
+
 
     Map<String, dynamic> toJson() => {
         "id": id,
@@ -118,4 +121,9 @@ class Movies {
     };
 }
 
+int _parseInt(dynamic value) {
+    if (value is int) return value;
+    if (value is String) return int.tryParse(value) ?? 0;
+    return 0;
+}
 

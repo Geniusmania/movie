@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:movie/store/api_controllers/movie_controller.dart';
 import '../../../reusables/slider_container.dart';
 import '../../../utils/constants/colors.dart';
 
@@ -8,10 +11,10 @@ class MainBanner extends StatelessWidget {
     super.key,
     required this.image,
     this.genre = 'Action/Sci-fi',
-    this.showStack = true,
+    this.showStack = true, required this.duration, required this.year,
   });
 
-  final String image;
+  final String image, duration, year;
   final String genre;
   final bool showStack;
 
@@ -19,12 +22,13 @@ class MainBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
+
     return Container(
       height: size.height * 0.5,
       width: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(image),
+          image: NetworkImage(image),
           fit: BoxFit.cover,
         ),
       ),
@@ -67,7 +71,7 @@ class MainBanner extends StatelessWidget {
               children: [
                 SliderContainer(
                   showIcon: false,
-                  content: '2h29m',
+                  content: duration,
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   bg: AppColors.dark.withValues(alpha: 1.5),
                 ),
@@ -81,7 +85,7 @@ class MainBanner extends StatelessWidget {
                 const SizedBox(width: 12),
                 SliderContainer(
                   showIcon: false,
-                  content: '2018',
+                  content: year,
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   bg: AppColors.dark.withValues(alpha: 1.5),
                 ),

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:movie/models/movies_model.dart';
 import '../../../utils/constants/colors.dart';
 import '../../Personalized/movie_details.dart';
 
 class MovieCard extends StatelessWidget {
-  const MovieCard({super.key,});
-
+  const MovieCard({super.key, required this.movies, this.onTap,});
+final Movies movies;
+final  void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return InkWell(onTap:()=> Get.to(()=> MovieDetail()),
+    return InkWell(onTap:onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
@@ -23,7 +25,7 @@ class MovieCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: AppColors.darkergrey,
                   image: DecorationImage(
-                    image: AssetImage('assets/img.png'),
+                    image: NetworkImage(movies.backgroundImageOriginal),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -31,7 +33,7 @@ class MovieCard extends StatelessWidget {
             ),
             Flexible(
               child: Text(
-                'Avengersndjvnsosklnvskln',
+                movies.title,
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(
                   context,

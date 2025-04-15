@@ -5,21 +5,26 @@ class SliderContainer extends StatelessWidget {
   const SliderContainer({
     super.key,
     required this.content,
-     this.icon,
+    this.icon,
     required this.bg,
-  this.padding = const EdgeInsets.symmetric(horizontal: 20, vertical: 10),  this.showIcon = true,
+    this.padding = const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    this.showIcon = true,
+    this.maxWidth = 300,
+    this.iconColor = AppColors.white,
   });
 
   final String content;
   final IconData? icon;
   final Color bg;
-  final EdgeInsetsGeometry? padding;
-
+  final EdgeInsetsGeometry padding;
   final bool showIcon;
+  final double maxWidth;
+  final Color iconColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: BoxConstraints(maxWidth: maxWidth),
       padding: padding,
       decoration: BoxDecoration(
         color: bg,
@@ -30,13 +35,19 @@ class SliderContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-         showIcon? Icon(icon, color: AppColors.white):SizedBox(),
-           SizedBox(width:showIcon? 10: null),
-          Text(
-            content,
-            style: Theme.of(
-              context,
-            ).textTheme.labelLarge!.apply(color: AppColors.white),
+          if (showIcon && icon != null)
+            Icon(icon, color: iconColor),
+          if (showIcon && icon != null)
+            const SizedBox(width: 10),
+          Flexible(
+            child: Text(
+              content,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context)
+                  .textTheme
+                  .labelLarge
+                  ?.apply(color: AppColors.white),
+            ),
           ),
         ],
       ),

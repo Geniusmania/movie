@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:movie/pages/home.dart';
+import 'package:movie/store/api_repository/movie_repository.dart';
 
 void main() {
+
+  Get.put(MovieRepository());
   runApp(const MyApp());
 }
 
@@ -15,9 +18,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)
       ),
       home: HomePage(),
+
     );
   }
 }
